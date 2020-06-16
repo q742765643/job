@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htht.job.uus.dao.RegionInfoDao">
+
+    <resultMap id="RegionInfoMap" type="com.htht.job.uus.model.RegionInfo">
+        <result property="regionId" column="regionid"/>
+        <result property="parentRegionId" column="t_m_regionid"/>
+        <result property="regionLevel" column="regionlevel"/>
+        <result property="areaName" column="fullname"/> 
+        <result property="districtName" column="districtname"/> 
+        <result property="longitudeCenter" column="longitude_center"/> 
+        <result property="latitudeCenter" column="latitude_center"/> 
+        <result property="longitudeMin" column="longitude_min"/> 
+        <result property="longitudeMax" column="longitude_max"/> 
+        <result property="latitudeMin" column="latitude_min"/> 
+        <result property="latitudeMax" column="latitude_max"/> 
+    </resultMap>
+    
+    <select id="selectRegionInfoByRegionId" resultMap="RegionInfoMap">
+    	SELECT regionid,t_m_regionid,regionlevel,fullname,districtname,
+    		longitude_center,latitude_center,longitude_min,longitude_max,latitude_min,latitude_max
+		FROM htht_uus_region_info 
+ 		WHERE 1=1 
+ 		<if test="regionId!=null and regionId!=''"> AND regionid = #{regionId} </if>
+    </select>
+	    
+    <select id="selectRegionInfosByParentRegionId" resultMap="RegionInfoMap">
+		SELECT DISTINCT c.*
+		FROM htht_uus_region_info a 
+			INNER JOIN htht_uus_region_info b ON a.regionid=b.t_m_regionid OR a.regionid=b.regionid
+	   		INNER JOIN htht_uus_region_info c ON b.regionid=c.t_m_regionid OR b.regionid=c.regionid
+		WHERE  1=1 
+		<if test="regionId!=null and regionId!=''"> AND a.regionid = #{regionId} </if>
+		ORDER BY regionid ASC
+	</select>
+	
+</mapper>

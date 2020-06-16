@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   http://dubbo.apache.org/schema/dubbo
+	   http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="consumer" owner="zzj"/>
+    <dubbo:registry cluster="failover" protocol="redis"  address="${master.redis.ip.port}" check="false"/>
+    <dubbo:protocol name="dubbo"  port="${master.dubbo.port}" serialization="kryo"/>
+    <dubbo:consumer check="false" timeout="500000"/>
+    <dubbo:reference id="dubboService"  retries="0" interface="com.htht.job.core.api.DubboService" check="false"/>
+    <dubbo:reference id="dubboShiroService"  retries="0" interface="com.htht.job.core.api.DubboShiroService" check="false"/>
+
+</beans>

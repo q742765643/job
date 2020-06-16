@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="renderer" content="webkit|ie-comp|ie-stand" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	<title>流程设计器页面</title>
+	<link href="static/js/flow/css/designer.css" type="text/css" rel="stylesheet" />
+	<link href="static/js/flow/images/png_favicon.png" type="image/png" rel="icon" />
+	<link rel="stylesheet" href='static/js/flow/javascript/jquery/zTree/css/zTreeStyle/zTreeStyle.css' type="text/css"/>
+	<!-- 引入对话框js --> 
+	<link rel="stylesheet" href="static/js/flow/utils/jDialog/js/jDialog/jDialog.css" type="text/css">
+	<script type="text/javascript" src="static/js/flow/utils/jDialog/js/jquery.js"></script>
+	<script type="text/javascript" src="static/js/flow/utils/jDialog/js/jDialog.js"></script>
+</head>
+<body>
+
+	<div class="top" id="top2">
+		<div class="open common_show">
+			<iframe id="hid_iframe1" name="hid_iframe1" style="display:none;"></iframe>
+			<form name="Form2" id="txtForm2" action="/PIESoaServer/processDesigner/uploadXml" method="post"  enctype="multipart/form-data" target="hid_iframe1" class="common_hover">
+				<input type="file" name="file" class="fileVal" accept="application/xml" />
+				<input type="hidden" name="callback" value="callbackUpload" />
+				<input type="submit" id="submitVal" value="upload" style="display:none"/>
+			</form>
+			<!-- <div class="local_open desc_show">本地打开</div>-->
+		</div>
+		<!-- <div class="inter_open common_show">
+			<div class="desc_show">远程打开</div>
+		</div>	-->
+		<!-- <div class="save common_show">
+			<div class="show_open">
+				<div class="local_save common_hover">本地保存</div>
+				<div class=" common_hover">远程保存</div>
+			</div>
+		</div> -->
+		<div class="save common_show local_save" >
+			<div class="desc_show">本地保存</div>
+		</div>
+		<div class="inter_save common_show">
+			<div class="desc_show">远程保存</div>
+		</div>
+		<!--<div class="deploy_process common_show">
+			<div class="desc_show">部署</div>
+		</div> -->
+	</div>
+	<div class="content">
+		<div class="left loading" id="left2">
+			<div class="topTree">				
+				<span id="treeDemo" class="ztree">存放树</span>
+			</div>
+	    	<div class="searchInput">
+	    		<input type="text" value="" id="searchVal" placeholder="请输入查询内容" pattern="\d3"/>
+	    		<button type="button" id="btnSearch"></button>
+	    	</div>
+	        <span class="left_zd"></span>
+	    </div>
+	    <div class="right">
+	    	<div class="wrap">
+	        	<div id="graphContainer">
+	        	</div>			
+	    	</div>    	
+	        <div class="rightbtm" style="display:">
+	        	<div class="tit">
+	        		<ul class="item">
+	        			<li class="act">流程属性</li>
+	        			<li>服务属性</li>
+	        			<li>组件属性</li>
+	        		</ul>
+	        		<!-- <span class="visibles"></span> -->
+	        	</div>        	
+	        	<div class="detailCon">
+	        		<ul class="detail">
+	        			<li class="activeBlock liList"> 
+	        				<div class="pName common">
+	        					名称:<input type="text" class="pNameVal ml6" />
+	        					<span class="error_prompt"></span>
+	        				</div>
+	        				<div class="pClassfity common">
+	        					分类:<select name="" id="defaultClass" class="ml6">
+	        						<option value="默认分类">默认分类</option>
+	        						<option value="">工具</option>
+	        						<option value="">大气计算</option>        		
+	        					</select>
+	        				</div>
+	        				<div class="desc common">
+	        					<span class="text">描述:</span>
+	        					<textarea name="" class="descDeatil ml6" cols="56" rows="3"></textarea>
+	        					<textarea style="display:none"  class="processId"></textarea>
+	        				</div>
+	        			</li>
+	        			<li class="serverData liList">
+	        				<div class="common">
+	        					<div class="wrapName">名称:</div>
+	        					<input type="text" class=" ml6 serviceName" />
+	        					
+	        					方法:<input type="text" disabled class="method ml6" />
+	        					<label for="isPL">批量执行</label>
+	        					<input type="checkbox" id="isPL" class="m16" />
+	        				</div>
+	        				<div class="serverDetail common">
+	        					<span class="text">描述:</span>
+	        					<textarea name="" class="serverDesc ml6" disabled cols="56" rows="3"></textarea>
+	        				</div>
+	        				<div class="clear"></div>
+	        				<div class="serverInlist common dataListCommon">
+	        					<span class="text">输入:</span>
+	        					<div class="conList ml6">
+	        						<ul class="title">
+		        						<li class='nth-1'>序号</li>
+		        						<li class='nth-2'>参数类型</li>
+		        						<li class='nth-3'>参数描述</li>
+		        					</ul>
+		        					<div class="returnData"></div>
+	        					</div>        					
+	        				</div>
+	        				<div class="serverOutlist common dataListCommon">
+	        					<span class="text">输出:</span>
+	        					<div class="conList ml6">
+	        						<ul class="title ">
+		        						<li class='nth-1'>序号</li>
+		        						<li class='nth-2'>参数类型</li>
+		        						<li class='nth-3'>参数描述</li>
+		        					</ul>
+		        					<div class="returnData"></div>	        					
+	        					</div>
+	        				</div>
+	        			</li>
+	        			<li class="liList">  
+	        				<div class="type common">
+	        					类型:<input type="text" value="" disabled class="typeVal ml6" />
+	        					<div class="wrapModelName">
+	        						名称:<input type="text" value="" class="modelName ml6" />
+	        					</div>
+	        				</div>
+	        				<div class="para">
+	        					<div class="common dataListCommon">
+	        						<span class="text">参数:</span>
+		        					<div class="conList ml6">
+		        						<ul class="title ">
+			        						<li class='nth-1'>序号</li>
+			        						<li class='nth-2'>参数类型</li>
+			        						<li class='nth-3'>参数描述</li>
+			        					</ul>
+			        					<div class="returnData"></div>
+		        					</div>
+		        				</div>
+		        			</div>
+	        			</li>
+	        		</ul>
+	        	</div>
+	        </div>
+	    </div>
+	    
+	</div>
+	<div class="shade">
+		<div class="dataView moveFlag" id="dataViewAppend">
+			<div class="dataTit">
+				<span class="dataText">数据流</span>
+				<span class="dataClose"></span>
+			</div>
+			<div class="dataTable">
+				<div class="tableLeft">
+					<div class="wrapTree">
+						<span id="treeData" class="ztree"></span>
+					</div>					
+				</div>			
+				<div class="tableRight">
+					<div class="tab">
+						<ul class="commonTitCss tabTit">
+							<li>数据类型</li>
+							<li class='li3'>数据描述</li>
+							<li>自动匹配输入源</li>
+							<li>增加</li>
+							<li class='li4'>删除</li>
+						</ul>
+						<div class="tabData returnData"></div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="flowList moveFlag" style="display:">
+			<!-- <div class="subShade"></div> -->
+			<div class="dataTit">
+				<span class="dataText">选择(双击进行选择)</span>
+				<span class="dataClose"></span>
+			</div>			
+			<div class="dataTable">
+				<div class="tab">
+					<ul class="commonTitCss tabTit flowList-tab ">
+						<li class="order-num">序号</li>
+						<li>流程名称</li>
+						<li>创建时间</li>
+						<li class="bR-no">描述</li>	
+					</ul>		
+					<div class="tabData processList">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="prompt"></div>	
+	<form id="txtForm" action="post" target="hid_iframe"> 
+		<input id="hidXml" type="hidden" name="json" />
+		<input id="hidName" type="hidden" name="name" />
+	</form>
+	<iframe id="hid_iframe" name="hid_iframe" style="display:none;"></iframe>
+	<script src="static/js/flow/resources/lib/jquery-1.7.1.min.js"></script>
+
+	<!-- <script src="resources/lib/jquery.i18n.properties-1.0.9.js"></script> -->
+	<script src="static/js/flow/common/taglibs.js" data-main="static/js/flow/js/designMain"></script>
+	<script src="static/js/flow/js/require.js" data-main="static/js/flow/js/designMain"></script>
+	<script>
+		require.config({
+			urlArgs : "v" + new Date().getTime()
+		})
+	</script>
+</body>
+</html>

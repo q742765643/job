@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htht.job.uus.dao.UserDao">
+
+    <resultMap id="UserMap" type="com.htht.job.uus.model.User">
+    	<id property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="password" column="password"/>
+        <result property="regionId" column="region"/>
+    </resultMap>
+    
+    <select id="selectUserInfoByUsername" resultMap="UserMap">
+		SELECT id,user_name,nick_name,password,region,locked
+		FROM htht_uus_user
+ 		WHERE user_name = #{userName} 
+    </select>
+
+
+</mapper>

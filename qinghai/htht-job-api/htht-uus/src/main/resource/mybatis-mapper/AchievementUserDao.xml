@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.htht.job.uus.dao.AchievementUserDao">
+	<resultMap type="com.htht.job.uus.model.AchievementUser" id="infoMapper">
+		<result property="region" column="region"/>
+		<result property="role" column="role"/>
+		<result property="name" column="name"/>
+		<result property="tel" column="tel"/>
+		<result property="address" column="address"/>
+	</resultMap>
+	
+
+	<select id="queryAchUser" resultMap="infoMapper">
+		SELECT * from htht_cluster_achievement_user order by region
+	</select>
+	
+</mapper>

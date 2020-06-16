@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<!-- 作物  crop  -->
+     <execlData name="c01">
+	    <name>c01</name>
+	    <tableName>t_r_agme_c01_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Crop01</className>
+ 	    <excelTitle>作物生长发育表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_作物名称_作物品种_发育期_发育期距平_发育期百分率_生长状况_植株高度_植株密度</excelHeader> 
+    </execlData>
+    
+    <execlData name="c02">
+	    <name>c02</name>
+	    <tableName>t_r_agme_c02_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Crop02</className>
+ 	    <excelTitle>干物质与叶面积表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_作物名称_作物品种_发育期_发育期距平_发育期百分率_生长状况_植株高度_植株密度</excelHeader> 
+    </execlData>
+    
+    <execlData name="c03">
+	    <name>c03</name>
+	    <tableName>t_r_agme_c03_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Crop03</className>
+ 	    <excelTitle>灌浆速度表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_作物名称_作物品种_发育期_发育期距平_发育期百分率_生长状况_植株高度_植株密度</excelHeader> 
+    </execlData>
+    
+    <execlData name="c04">
+	    <name>c04</name>
+	    <tableName>t_r_agme_c04_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Crop04</className>
+ 	    <excelTitle>产量因素表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_作物名称_发育期_测定值</excelHeader> 
+    </execlData>
+    
+    <execlData name="c05">
+	    <name>c05</name>
+	    <tableName>t_r_agme_c05_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Crop05</className>
+	    <excelTitle>产量结构表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_测定值</excelHeader> 
+    </execlData>
+    
+    <execlData name="c06">
+	    <name>c06</name>
+	    <tableName>t_r_agme_c06_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Crop06</className>
+ 	    <excelTitle>关键农事活动表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_作物名称_质量_方法和工具</excelHeader> 
+    </execlData>
+    
+    <execlData name="c07">
+	    <name>c07</name>
+	    <tableName>t_r_agme_c07_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Crop07</className>
+ 	    <excelTitle>县产量水平表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_年度_测站产量水平_县平均单产_县产量增减产百分率</excelHeader> 
+    </execlData>
+    
+    <!-- 牧草 Grass  -->
+    <execlData name="g01">
+	    <name>g01</name>
+	    <tableName>t_r_agme_g01_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Grass01</className>
+ 	    <excelTitle>牧草发育期表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_牧草名称_发育期_发育期百分率</excelHeader> 
+    </execlData>
+    <execlData name="g02">
+	    <name>g02</name>
+	    <tableName>t_r_agme_g02_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Grass02</className>
+ 	    <excelTitle>牧草生长高度表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_牧草名称_生长高度</excelHeader> 
+    </execlData>
+    <execlData name="g03">
+	    <name>g03</name>
+	    <tableName>t_r_agme_g03_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Grass03</className>
+ 	    <excelTitle>牧草产量表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_牧草名称_干重_鲜重_干鲜比</excelHeader> 
+    </execlData>
+     <execlData name="g04">
+	    <name>g04</name>
+	    <tableName>t_r_agme_g04_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Grass04</className>
+ 	    <excelTitle>覆盖度及草层采食度表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_覆盖度_草层状况评价_采食度_采食率</excelHeader> 
+    </execlData>
+    <execlData name="g05">
+	    <name>g05</name>
+	    <tableName>t_r_agme_g05_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Grass05</className>
+ 	    <excelTitle>灌木、半灌木密度表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_牧草名称_每公顷株丛数_每公顷总株丛数</excelHeader> 
+    </execlData>
+     <execlData name="g06">
+	    <name>g06</name>
+	    <tableName>t_r_agme_g06_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Grass06</className>
+ 	    <excelTitle>家畜膘情等级调查表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_膘情等级_成畜头数_幼畜头数</excelHeader> 
+    </execlData>
+    
+    <!-- 农气 Pheno -->
+    <execlData name="p01">
+	    <name>p01</name>
+	    <tableName>t_r_agme_p01_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Pheno01</className>
+ 	    <excelTitle>动植物物候期表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_出现时间_动植物名称_物候期名称</excelHeader> 
+    </execlData>
+    <execlData name="p02">
+	    <name>p02</name>
+	    <tableName>t_r_agme_p02_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Pheno02</className>
+ 	    <excelTitle>气象水文现象表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_出现时间_水文现象名称</excelHeader> 
+    </execlData>
+    
+    <!-- 土壤 soil -->
+    <execlData name="s01">
+	    <name>s01</name>
+	    <tableName>t_r_agme_s01_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Soil01</className>
+ 	    <excelTitle>土壤水文物理特性表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_土层深度_田间持水量_土壤容重_凋萎湿度</excelHeader> 
+    </execlData>
+    <execlData name="s02">
+	    <name>s02</name>
+	    <tableName>t_r_agme_s02_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Soil02</className>
+ 	    <excelTitle>土壤相对湿度表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_作物名称_10cm土壤相对湿度_20cm土壤相对湿度_30cm土壤相对湿度_40cm土壤相对湿度_50cm土壤相对湿度_60cm土壤相对湿度_70cm土壤相对湿度_80cm土壤相对湿度_90cm土壤相对湿度_100cm土壤相对湿度_灌溉或降水
+	    </excelHeader> 
+    </execlData>
+    <execlData name="s03">
+	    <name>s03</name>
+	    <tableName>t_r_agme_s03_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Soil03</className>
+ 	    <excelTitle>水分总储存量表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_作物名称_10cm水分总储存量_20cm水分总储存量_30cm水分总储存量_40cm水分总储存量_50cm水分总储存量_60cm水分总储存量_70cm水分总储存量_80cm水分总储存量_90cm水分总储存量_100cm水分总储存量</excelHeader> 
+    </execlData>
+    <execlData name="s04">
+	    <name>s04</name>
+	    <tableName>t_r_agme_s04_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Soil04</className>
+ 	    <excelTitle>有效水分储存量表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度__作物名称_10cm有效水分储存量_20cm有效水分储存量_30cm有效水分储存量_40cm有效水分储存量_50cm有效水分储存量_60cm有效水分储存量_70cm有效水分储存量_80cm有效水分储存量_90cm有效水分储存量_100cm有效水分储存量</excelHeader> 
+    </execlData>
+    <execlData name="s05">
+	    <name>s05</name>
+	    <tableName>t_r_agme_s05_ele</tableName>
+	    <className>com.htht.job.executor.model.exceldata.Soil05</className>
+ 	    <excelTitle>土壤冻结与解冻表.xlsx</excelTitle>
+	    <excelHeader>区站号_纬度_经度_测站高度_地段类型_土层深度_土层状态_冻结/解冻时间</excelHeader> 
+    </execlData>
+</root>

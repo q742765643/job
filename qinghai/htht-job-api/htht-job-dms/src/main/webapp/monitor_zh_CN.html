@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>流程监控</title>
+	<link href="static/js/flow/images/png_favicon.png" type="image/png" rel="icon" />
+	<link rel="stylesheet" href="static/js/flow/css/monitor.css" />
+</head>
+<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-8" data-genuitec-path="/NewDesigner/WebContent/monitor.html">
+	<div class="header" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-8" data-genuitec-path="/NewDesigner/WebContent/monitor.html">
+		<h1 class="title"></h1>
+	</div>
+	<div class="routeWrap ">
+		<div class="centerRoute">
+			<span class="link">已连接服务器</span>
+			<div id="wrap"></div>
+			<div class="progress">
+				<span class="this_sum">0</span>/
+				<span class="sum">0</span>
+			</div>
+			<button value="pause" class="pause_btn">暂停</button>
+		</div>
+		<div class="show_detail"></div>		
+	</div>
+	<div class="graphWrap right">
+		<div class="detail">
+			<div class="property">
+				<span class="property_ico"></span>
+				<span class="words">属性</span>
+			</div>
+			<div style="clear:both"></div>
+			<p class="name_desc">
+				<span class="name">服务名称：</span>
+				<span class="service_desc desc"></span>
+			</p>
+			<p class="name_desc">
+				<span class="name">服务类型：</span>
+				<span class="service_type desc"></span>
+				<span class="isPLs">
+	        		<input type="checkbox" id="isPL" class="m16" />
+					<label for="isPL">批量执行</label>
+
+	        	</span>
+			</p>
+			<p class="name_desc">
+				<span class="name">节点类型：</span>
+				<span class="node_type desc"></span>
+			</p>
+			<p class="name_desc">
+				<span class="name">任务单号：</span>
+				<span class="task_number desc"></span>
+			</p>
+			<p class="name_desc">
+				<span class="name">开始时间：</span>
+				<span class="start_time desc"></span>
+			</p>
+			<p class="name_desc">
+				<span class="name">结束时间：</span>
+				<span class="end_time desc"></span>
+			</p>
+			<p class="name_desc">
+				<span class="name">执行状态：</span>
+				<span class="carry_state desc"></span>
+				<span class="rewrite_para">参数修改&继续执行</span>
+			</p>
+			<p class="name_desc">
+				<span class="name">输入值：</span>
+				<span class="input_para desc"> </span>
+			</p>
+			<div style="clear:both"></div>			
+			<div class="description"> 
+				<ul class="title_data">
+					<li class="input_desc border_right width20 bg_grey"><span>描述</span></li>
+					<li class="para width79 bg_grey"><span>值</span></li>
+				</ul>
+				<ul class="contain in_put">
+					<li class="width20 border_right"></li>
+					<li class="width79"></li>
+					<li class="width20 bg_grey border_right"></li>
+					<li class="width79 bg_grey"></li>
+					<li class="width20 border_right"></li>
+					<li class="width79"></li>
+					<li class="width20 bg_grey border_right"></li>
+					<li class="width79 bg_grey"></li>
+					<li class="width20 border_right"></li>
+					<li class="width79"></li>
+				</ul>
+			</div>	
+			<p class="name_desc">
+				<span class="name">输出值：</span>
+				<span class="input_para desc"> </span>
+			</p>		
+			<div style="clear:both"></div>			
+			<div class="description"> 
+				<ul class="title_data">
+					<li class="input_desc border_right width20 bg_grey"><span>描述</span></li>
+					<li class="para width79 bg_grey"><span>值</span></li>
+				</ul>
+				<ul class="contain out_put">
+					<li class="width20 border_right"></li>
+					<li class="width79"></li>
+					<li class="width20 bg_grey border_right"></li>
+					<li class="width79 bg_grey"></li>
+					<li class="width20 border_right"></li>
+					<li class="width79"></li>
+					<li class="width20 bg_grey border_right"></li>
+					<li class="width79 bg_grey"></li>
+					<li class="width20 border_right"></li>
+					<li class="width79"></li>
+				</ul>
+			</div>	
+		</div>
+		<div class="gWrap">
+			<div id="graphContainer"></div>
+		</div>
+		
+	</div>
+	<div class="shade">
+
+		<div class="choseFile" style="display:">
+			<!-- <div class="subShade"></div> -->
+			<div class="dataTit">
+				<span class="dataText">选择(双击文件夹名进入文件夹    单击操作选择按钮选中文件夹或文件)</span>
+				<span class="dataClose"></span>
+			</div>
+			<div class="catalogs">
+				<span class="path">当前路径：</span>
+				<div class="thisPath">
+					<button value="root">根目录</button>
+				</div>
+			</div>
+			<div class="dataTable">
+				<div class="tab">
+					<ul class="commonTitCss dialog tabTit">
+						<li class='li3'>名称</li>		
+						<li class="up_data">修改日期</li>
+						<li class="brn">操作</li>				
+					</ul>		
+					<div class="tabData choseTabData">
+						<ol class='numb0'>
+					   		<li class='li3 folder'>D:\soa_deplf</li>
+					   		<li>sdasdas</li>
+					   		<li class="brn"></li>
+			  			</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dataView" id="dataViewAppend" style="">
+
+			<div class="dataTit">
+				<span class="dataText">编辑</span>
+				<span class="dataClose"></span>
+			</div>
+			<div class="dataTable">		
+				<div class="tableRight">
+					<div class="tab">
+						<ul class="commonTitCss tabTit">
+							<li>描述</li>
+							<li class='li3'>值</li>
+							<li class="brn">操作</li>
+						</ul>
+						<div class="tabData returnData" id="isScroll">
+							<ol class='numb0 hasBr'>
+						   		<li>sdasdas</li>
+						   		<li class='li3' contenteditable>D:\soa_deploy\data\空间坐标系\测试数据\GF1_PMS1_E111.9_N29.4_20131119_L1A0000114367\GF1_PMS1_E11114367-MSS1.tiff</li>
+						   		<li class="brn"></li>
+				  			</ol>				  			
+						</div>
+						<div class="footer">
+							<span>点击单元格进行编辑</span>
+							<div class="isExecute">
+								<button class="exec">执行</button>
+								<button class="cancel">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="prompt"></div>	
+	<!-- <script src="../resources/lib/jquery.i18n.properties-1.0.9.js"  data-main="js/monitorMain.js" ></script> -->
+	<script src="static/js/flow/common/taglibs.js" data-main="static/js/flow/js/monitorMain.js" defer async="true"></script>
+	<script src="static/js/flow/js/require.js" data-main="static/js/flow/js/monitorMain"></script>
+	<script>
+        require.config({
+            urlArgs : "v" + new Date().getTime()
+        })
+	</script>
+</body>
+</html>

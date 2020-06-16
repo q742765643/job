@@ -1,0 +1,171 @@
+/*全局初始化样式*/
+body{ padding:0; margin:0 auto; font-size: 14px; line-height: 1.42857143;
+  font-family:arial,Microsoft YaHei,'微软雅黑','宋体'; color: #666460;
+  width: 100%; min-width: 320px; zoom:1;
+ /*禁用Webkit内核浏览器的文字大小调整功能*/
+ -webkit-text-size-adjust:none;
+ /*取出点击出现半透明的灰色背景*/
+ -webkit-tap-highlight-color:rgba(0,0,0,0);
+ -webkit-tap-highlight:rgba(0,0,0,0);
+ /*控制文本可选性*/
+ -webkit-user-select: none;
+     -ms-user-select: none;
+    -moz-user-select: none;
+  -khtml-user-select: none;
+         user-select: none;
+ /*设置字体的抗锯齿或者说光滑度*/
+ -webkit-font-smoothing: antialiased;
+ }
+ 
+ 
+ /*默认去除ul、li的默认样式*/
+ p,h1,h2,h3,h4,h5,h6,td{ margin: 0; padding: 0;}
+ ul,ul li{ list-style:none; margin: 0; padding: 0;}
+ /*初始化下拉菜单、单行输入框、多行输入框的样式*/
+ select,input,textarea{ border-radius:0; -webkit-border-radius:0; color:#666460;}
+ /*表单元素获得焦点时不显示虚线框*/
+ input:focus { outline: none;}
+ input,button,select,textarea{ outline:none;/*-webkit-appearance:none;*//*强制去除表单自带的样式*/ }
+ /*不允许多行输入文本框有滚动条*/
+ textarea{ resize:none;/*-webkit-appearance:none;*//*强制去除textarea自带的样式*/ }
+ /*初始化表单元素样式*/
+ textarea,input,select { background:none; border:none; margin:0; padding:0;}
+ /*初始化HTML5标签样式*/
+ audio,canvas,progress,video { display: inline-block; vertical-align:baseline;}
+ article,aside,footer,header,hgroup,nav,section,figure,figcaption{ display:block;}
+ /*去除figure边距*/
+ figure,figcaption{ margin:0px; padding:0px;}
+ 
+ /*初始化图片样式*/
+ img{ border:none; border:0; max-width:100%; vertical-align:top;}
+ 
+ /*初始化a的样式和字体样式*/
+ a{text-decoration:none; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+ a:focus {outline:none; -moz-outline:none;}
+ 
+ 
+ /* common.css */
+ .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+ 
+ .fl{float: left}
+ .fr{float: right}
+ /* common.css */
+
+
+ /* 登陆页样式 */
+ body, html {
+  width: 100%;
+  height: 100%;
+ }
+
+ body {
+   background: url(../images/icon_bg.png) no-repeat center;
+   background-size: cover;
+ }
+
+ .container {
+   width: 100%;
+   height: 100%;
+   background: url(../images/icon_input_bg.png) no-repeat center;
+   background-size:80%;
+ }
+
+ .main {
+   width: 25%;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%,-50%)
+ }
+
+ .main .title {
+   font-size: 33px;
+   color: #00D2FF;
+   line-height: 36px;
+   text-align: center;
+   margin-bottom: 37px;
+   font-weight: normal;
+ }
+
+ .main .inputbox .input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #0c7599;
+  padding: 2px 0px 0px 48px;
+  box-sizing: border-box;
+ }
+
+ .main .inputbox .userName {
+   margin-bottom: 30px;
+   background: url(../images/icon_user.png) no-repeat  12px center
+ }
+
+ .main .inputbox .passWord {
+  margin-bottom: 10px;
+  background: url(../images/icon_psd.png) no-repeat  12px center
+}
+
+.main .inputbox .input input {
+  width: 100%;
+  height: 100%;
+  border-left: 1px solid #27cfff;
+  box-sizing: border-box;
+  padding: 0 12px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.main .remember .checkbox {
+  width: 17px;
+  height: 17px;
+  position: relative;
+  margin: 0px 8px 0px 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.main .remember .checkbox input {
+  visibility: hidden;
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main .remember .checkbox span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.main .remember .checkbox .checked + span {
+  background: url(../images/icon_check.png) no-repeat center;
+}
+
+.main .remember label {
+  font-size: 14px;
+  color: #fff;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.main .submit {
+  text-align: center;
+}
+
+.main .submit input {
+  width: 80%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 30px;
+  color: #fff;
+  background: #00C1FF;
+  border-radius: 10px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+ /* 登陆页样式 */

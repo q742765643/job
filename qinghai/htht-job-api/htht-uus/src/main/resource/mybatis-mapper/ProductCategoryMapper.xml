@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htht.job.uus.dao.ProductCategoryDao">
+
+	<resultMap id="ProductCategoryMap" type="com.htht.job.uus.model.ProductCategory">
+		<id property="id" column="id" />
+		<result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
+		<result property="version" column="version" />
+		<result property="iconPath" column="icon_path" />
+		<result property="menu" column="menu" />
+		<result property="menuId" column="menu_id" />
+		<result property="parentId" column="parent_id" />
+		<result property="text" column="text" />
+		<result property="treeKey" column="tree_key" />
+	</resultMap>
+	
+	<resultMap id="ProductMap" type="com.htht.job.uus.model.Product">
+		<id property="id" column="id" />
+		<result property="parentId" column="tree_id" />
+		<result property="name" column="name" />
+		<result property="bz" column="bz" />
+	</resultMap>
+	
+	<select id="selectCategoryByUserId" resultMap="ProductCategoryMap">
+		SELECT DISTINCT c.id id,c.text text,c.parent_id parent_id,c.icon_path icon_path,c.create_time create_time
+		FROM htht_uus_user_role ur, htht_uus_role r, htht_uus_role_category rc,htht_cluster_schedule_data_category c
+		WHERE 1=1
+			AND ur.role_id = r.id
+			AND r.id = rc.role_id
+			AND rc.category_id = c.id
+			AND ur.user_id = #{userId}
+		ORDER BY c.create_time,c.id ASC;
+	</select>
+	
+		
+	<select id="selectProductByProductInfoId" resultMap="ProductMap">
+	SELECT p.id,p.name,p.tree_id,p.bz
+		FROM htht_cluster_schedule_product p,htht_cluster_schedule_product_info pi
+		WHERE 1=1
+			AND p.id = pi.product_id
+			AND pi.id = #{productInfoId}
+		ORDER BY p.create_time,p.id ASC
+	</select>
+	
+	<select id="selectProductByProductId" resultMap="ProductMap">
+	SELECT id,name,tree_id,bz
+		FROM htht_cluster_schedule_product 
+		WHERE id = #{productId}
+		ORDER BY create_time,id ASC
+	</select>
+	
+</mapper>

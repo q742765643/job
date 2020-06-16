@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.htht.job.uus.dao.AchievementMenuDao">
+	<resultMap type="com.htht.job.uus.model.AchievementMenu" id="menuMapper">
+		<id property="id" column="id" />
+		<result property="parentId" column="parent_id"/>
+		<result property="menuName" column="menu_name"/>
+		<result property="orderNum" column="order_num"/>
+		<result property="iconPath" column="icon_path"/>
+		<result property="extend1" column="extend1"/>
+		<result property="extend2" column="extend2"/>
+		<result property="extend3" column="extend3"/>
+	</resultMap>
+	
+	<select id="queryMenus" resultMap="menuMapper">
+		SELECT * FROM htht_cluster_achievement_menu 
+		WHERE 1=1
+		<if test="pid!=null and pid!='' "> AND parent_id = #{pid} </if>
+		order by order_num
+	</select>
+	
+
+</mapper>

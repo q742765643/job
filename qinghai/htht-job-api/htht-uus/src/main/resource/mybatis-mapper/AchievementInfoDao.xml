@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.htht.job.uus.dao.AchievementInfoDao">
+	<resultMap type="com.htht.job.uus.model.AchievementInfo" id="infoMapper">
+		<id property="id" column="id" />
+		<result property="menuId" column="menu_id"/>
+		<result property="regionId" column="region_id"/>
+		<result property="regionName" column="region_name"/>
+		<result property="imageName" column="image_name"/>
+		<result property="imagePath" column="image_path"/>
+		<result property="extend1" column="extend1"/>
+		<result property="extend2" column="extend2"/>
+		<result property="extend3" column="extend3"/>
+	</resultMap>
+	
+	<resultMap id="RegionInfoMap" type="com.htht.job.uus.model.RegionInfo">
+        <result property="regionId" column="regionid"/>
+        <result property="parentRegionId" column="t_m_regionid"/>
+        <result property="regionLevel" column="regionlevel"/>
+        <result property="areaName" column="fullname"/> 
+        <result property="districtName" column="districtname"/> 
+        <result property="longitudeCenter" column="longitude_center"/> 
+        <result property="latitudeCenter" column="latitude_center"/> 
+        <result property="longitudeMin" column="longitude_min"/> 
+        <result property="longitudeMax" column="longitude_max"/> 
+        <result property="latitudeMin" column="latitude_min"/> 
+        <result property="latitudeMax" column="latitude_max"/> 
+    </resultMap>
+	
+	<select id="queryImgInfo" resultMap="infoMapper">
+		SELECT * FROM htht_cluster_achievement_info 
+		WHERE 1=1
+		<if test="menuId!=null and menuId!='' "> 
+			AND menu_id = #{menuId} 
+		</if>
+		<if test="regionId!=null and regionId!='' "> 
+			AND region_id = #{regionId} 
+		</if>
+		order by region_id
+	</select>
+	
+	<select id="queryNewest" resultMap="infoMapper">
+		SELECT f.id,f.region region_id,f.file_name image_name,CONCAT('/FileServer/',f.relative_path) image_path
+		FROM htht_cluster_schedule_product_file_info f,
+		(select id from  htht_cluster_schedule_product_info
+			WHERE 1=1
+				<if test="menuName!=null and menuName!='' "> 
+					AND name = #{menuName} 
+				</if>
+				<if test="regionId!=null and regionId!='' "> 
+					AND region_id = #{regionId} 
+				</if>
+				AND issue = 
+		(select max(issue) from htht_cluster_schedule_product_info
+				WHERE 1=1
+				<if test="menuName!=null and menuName!='' "> 
+					AND name = #{menuName} 
+				</if>
+				<if test="regionId!=null and regionId!='' "> 
+					AND region_id = #{regionId} 
+				</if>
+			)) p
+		WHERE f.product_info_id = p.id and f.file_type ='jpg'
+	</select>
+
+	<select id="findRegionInfosByMenuId" resultMap="RegionInfoMap">
+		SELECT r.* from htht_uus_region_info as r,htht_cluster_achievement_info as a
+		where r.regionid = a.region_id
+		<if test="menuId!=null and menuId!='' "> 
+			AND a.menu_id = #{menuId} 
+		</if>
+		order by r.regionid
+	</select>
+	
+
+	<select id="queryAchTab" resultType="java.util.Map">
+		SELECT * from ${tabName} order by station_num
+	</select>
+	
+</mapper>

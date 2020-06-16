@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htht.job.uus.dao.ProductInfoDao">
+
+    <resultMap id="ProductInfoMap" type="com.htht.job.uus.model.ProductInfo">
+        <id property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+<!--         <result property="updateTime" column="update_time"/> -->
+<!--         <result property="version" column="version"/> -->
+        <result property="cycle" column="cycle" />
+        <result property="name" column="name" />
+        <result property="issue" column="issue" />
+        <result property="mark" column="mark" />
+        <result property="mapUrl" column="map_url" />
+<!--         <result property="featureName" column="feature_name" /> -->
+        <result property="productPath" column="product_path" />
+<!--         <result property="gdb_path" column="gdb_path" /> -->
+        <result property="productId" column="product_id" />
+        <result property="regionId" column="region_id" />
+        <result property="isRelease" column="is_release" />
+        <result property="bz" column="bz" />
+        <result property="mosaicFile" column="mosaic_file" />
+        <result property="inputFileName" column="input_file_name" />
+        <result property="modelIdentify" column="model_identify" />
+        
+    </resultMap>
+    
+    <select id="selectProductInfoDistinct" resultMap="ProductInfoMap">
+	    SELECT DISTINCT id,cycle,issue,region_id,mosaic_file,map_url,name,bz,mark,product_path
+	    FROM htht_cluster_schedule_product_info  
+	    WHERE 1=1 
+        <if test="cycle!=null and cycle!='' "> AND cycle =  #{cycle} </if>
+        <if test="productId!=null and productId!='' "> AND product_id =  #{productId} </if>
+        <if test="regionId!=null and regionId!='' "> AND region_id =  #{regionId} </if>
+<!--         <if test="regionIds!=null and regionIds.length!='' "> AND region_id IN  -->
+<!--         	<foreach collection="regionIds" index="index" item="regionId" open="(" separator="," close=")" > -->
+<!--         		#{regionId} -->
+<!--         	</foreach> -->
+<!--         </if> -->
+	    <if test="beginTime!=null and beginTime!='' "> AND issue &gt;= #{beginTime} </if>
+        <if test="endTime!=null and endTime!='' "> AND issue &lt;= #{endTime} </if>
+        ORDER BY issue DESC
+    </select>
+    
+</mapper>

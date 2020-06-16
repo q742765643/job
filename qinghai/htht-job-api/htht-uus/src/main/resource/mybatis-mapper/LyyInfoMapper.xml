@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.htht.job.uus.dao.LyyInfoDao">
+	<resultMap type="com.htht.job.uus.model.LyyInfo" id="LyyInfoMapper">
+		<id property="id" column="id" />
+		<result property="issue" column="issue"/>
+		<result property="lon" column="lon"/>
+		<result property="lat" column="lat"/>
+		<result property="isLyy" column="is_lyy"/>
+		<result property="productInfoId" column="product_info_id"/>
+		<result property="cycle" column="Cycle"/>
+		<result property="modelIdentify" column="model_identify"/>
+		<result property="fileName" column="file_name"/>
+	</resultMap>
+	
+	<select id="findLyyByIssueAndProductInfoId" resultMap="LyyInfoMapper">
+		SELECT * FROM htht_cluster_schedule_lyyinfo
+		WHERE 1=1
+		<if test="issue!=null and issue!='' "> AND issue = #{issue} </if>
+		<if test="productInfoId !=null and productInfoId!='' "> AND product_info_id = #{productInfoId} </if>
+		
+	</select>
+
+</mapper>

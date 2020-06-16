@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.htht.job.uus.dao.HSFireDao">
+	<resultMap type="com.htht.job.uus.model.HSFire" id="HSFireMapper">
+		<id property="id" column="id" />
+		<result property="issue" column="issue"/>
+		<result property="lon" column="lon"/>
+		<result property="lat" column="lat"/>
+		<result property="tfire" column="tfire"/>
+		<result property="tbg" column="tbg"/>
+		<result property="area" column="area"/>
+		<result property="frpN" column="frp_n"/>
+		<result property="cred" column="cred"/>
+		<result property="lat" column="lat"/>
+		<result property="regionId" column="region_id"/>
+		<result property="productInfoId" column="product_info"/>
+	</resultMap>
+	
+	<select id="selectHSFireByIssue" resultMap="HSFireMapper">
+		SELECT * FROM htht_cluster_schedule_h8fire
+		WHERE issue = #{issue}
+	</select>
+	
+	<select id="findHSFireByIssueAndProductInfoId" resultMap="HSFireMapper">
+		SELECT * FROM htht_cluster_schedule_h8fire
+		WHERE 1=1
+		<if test="issue!=null and issue!='' "> AND issue = #{issue} </if>
+		<if test="productInfoId !=null and productInfoId!='' "> AND product_info = #{productInfoId} </if>
+		
+	</select>
+
+</mapper>

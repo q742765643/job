@@ -1,0 +1,96 @@
+@charset "utf-8";
+@import url("common.css");
+
+body{overflow: hidden;}
+/*进度条css样式*/
+input,select,textarea{outline: none;resize:none;}
+.commonCss{border:1px solid #ccc;background: #f8f8f8;overflow: hidden;display: inline-block;margin-left: 4px;}
+#vertical{width:5px;}
+#horizontal{height: 5px;}
+.loadSchedule{width:100%;height: 100%;background: green;float: left;}
+
+/*html样式*/
+.header{height: 34px;line-height: 34px;text-align: center;}
+.centerRoute{width:650px;height: 30px;line-height: 30px;margin:0 auto;}
+.routeWrap{border-bottom: 1px solid #bdbdbd;background: #f1f1f1;position: relative;}
+#wrap{width:410px;height: 30px;}
+#wrap,.progress,.link{float: left;}
+.graphWrap{position: absolute;top:64px;bottom: 0px;width:100%;overflow: hidden;}
+.gWrap{height: 100%;width: 100%;overflow: auto;}
+#graphContainer{width: 1080px;height: 99%;overflow: auto;overflow-x:hidden;margin:0 auto;}
+.show_detail{width:20px;height: 20px;transition:all .4s ease;border-radius:20%;background: url(../images/layout_arrows.png) 1px -14px;
+			position: absolute;right:10px;top:50%;margin-top:-10px;cursor: pointer;}
+.show_detail:hover{background-color: #e8dc6e;}
+.detail{width:400px;position: absolute;top:0;bottom: 10px;overflow: hidden;transition:all 1s ease;
+		background:rgba(255,255,255,0.9);right: -420px;border: 1px solid #82cdff;z-index: 10;}
+.detail .property{width:100%;height: 30px;line-height: 30px;background: #1e99ec;color: #FFF;}
+.property_ico,.words{float: left;}
+.property_ico{width:16px;height: 16px;margin:8px 8px 8px 20px;background: url(../images/component_detail.png) no-repeat;overflow: hidden;}
+.name_desc{line-height: 20px;padding: 0 10px;float:left;width:97%;}
+.description{border-top:1px solid #82cdff;overflow:hidden;height: 166px;border-bottom: 1px solid #82cdff; }
+.description .title_data li{height: 20px;line-height: 20px;}
+.description .contain{overflow: auto;width: 103.8%;height: 140px;}
+.description li{float: left;height: 40px;line-height:20px;text-align: left;overflow: hidden;text-overflow: ellipsis;/* border-bottom: 1px solid #82cdff; */ }
+.description li span{margin-left: 10px;}
+.border_right{border-right: 1px solid #82cdff;}
+.width20{width: 20%;}
+.width79{width: 79.5%;}
+.bg_grey,.odd1{background: #edf4fa;}
+.centerRoute .pause_btn{margin-left: 20px;padding:0 18px;line-height: 20px;border:0;padding-left: 28px;
+	background: #CCC url(../images/pause.png) no-repeat 12px 2px;cursor:pointer;}
+.routeWrap .centerRoute .start_btn{background: #CCC url(../images/start.png) no-repeat 12px 2px;}
+.detail.show{right:16px;}
+.rewrite_para{color: red;text-decoration: underline;float: right;margin-right: 20px;cursor: pointer;
+	transition:all .3s ease; border-radius:20%;padding: 0 4px;}
+.rewrite_para:hover{background-color: #e8dc6e;}
+
+/*遮罩层css*/
+.shade{width:100%;position:absolute;top:0;left:0;z-index:15;background-color:rgba(0,0,0,.3);
+	   display: none;   overflow: hidden;}
+.shade .dataView{width:0;height:0; position:absolute;top:23%;left:17%;border-radius:12px 12px 0 0;overflow:hidden;
+	background: #FFF;border:1px solid #ccc;z-index: 16;}
+.shade .dataTit{background: #99DDFF;height:30px;line-height: 30px;cursor: move;}
+.shade .dataTit .dataText{margin-left:10px;}
+.shade .dataTit .dataClose{transform:translateY(50%);cursor:pointer;float: right;display:inline-block;background: url(../images/close.gif);width:14px;height: 14px;margin-right:12px;}
+.shade .dataTable{height: 93%}
+.shade .dataView .dataTable .tableRight{float: left;width:100%;height: 100%;}
+.shade .tab{width:100%;overflow: hidden;height:100%;}
+div.infoAct{opacity: 1;z-index: 288;}
+
+.tab .commonTitCss{width:100%;height: 30px;border-bottom: 1px solid #ccc;background: #F7F7F7;}
+.tab li{width:17.2%;text-align:center;line-height: 30px;height:100%;float: left;position:relative;border-right:1px solid #CCC;/* overflow:hidden;white-space: nowrap;text-overflow: ellipsis; */}
+.tab li.li3{width:64.5%;}
+
+.tab .tabData{height:80%;overflow: auto;max-width:102.2%;}
+.tab ol{height: 30px;transition:all .6s ease;cursor: pointer;border-bottom: 1px solid #ADADAD;}
+.tab ol:hover,.tab ol.numb1:hover{background: #B2E1FF;}
+.tab ol.numb1{background: #F7F7F7;}
+.tab ol.hasBr{height: 60px;}
+.tab ol.hasBr .li3{text-align: left;line-height: 20px;}
+.tab select{font-size:10pt;text-align: center;}
+.tab li.brn{border-right: 0;}
+.tab .footer{background: #86DDF8;height: 36px;line-height: 36px;padding: 4px 20px;}
+.tab .isExecute{float: right;}
+.tab .isExecute button{background: #1fbced; padding: 0 10px;border: 0;height: 30px;cursor: pointer;border-radius: 6px;margin-left: 20px}
+.chose{padding: 0 10px;line-height: 30px;height: 30px;cursor: pointer;}
+
+.shade .choseFile{width:530px;height:400px;position: absolute;top:20%;left: 35%;background: #FFF;
+	border:1px solid #ccc;z-index: 2222; display: none; }
+.choseFile .catalogs{background: #FFFCF9;height: 20px;line-height: 20px;padding: 5px 8px;border:1px solid #ADADAD;}
+.choseFile .tab li.folder{background: url(../images/folder.gif) no-repeat;width: 44.85%;padding-left: 30px;
+	text-align: left;background-position:  10px 7px;overflow: hidden;}
+.choseFile .tab li.addFile{background:url(../images/file.png) no-repeat;background-position:  10px 7px;}
+.choseFile .dataTable{height: 338px;position: relative;}
+.choseFile .footerChose{position: absolute;width: 100%;height: 30px;line-height: 30px;border-top: 1px solid #ADADAD;left: 0;bottom: 0;}
+.choseFile .up_data{width: 28.5%;}
+.choseFile li{width: 20%;}
+.choseFile li.li3{width: 50.5%;}
+.choseFile .tabData{height: 308px;}
+.choseFile .choseNext{background: #ebebeb;padding:4px 8px;cursor: pointer;border:0;}
+.path{float:left;}
+.catalogs .thisPath button{background: #ebebeb;padding: 4px 8px;cursor: pointer;border: 1px solid #CCC;margin-left: 1px;}
+.catalogs .thisPath button:hover{border: 1px solid #009DFF;}
+
+.info{width:200px;height:30px;line-height:30px;color:#FFF;text-align: center;background:rgba(0,0,0,0.6);border:1px solid #CCC;transition:all .6s ease;opacity:0;position: absolute;top:40%;left:40%;z-index:-1;
+	_opacity:1;_filter:alpha(opacity=1);*opacity:1;*filter:alpha(opacity=100);opacity:1 \9;filter:alpha(opacity=100) \9;*background:#000;_background:#000;background:#000 \9;}
+ .subShade{background:rgba(255,255,255,.7) url(../images/loading.gif) no-repeat center;position: absolute;z-index:6666;left: 0;top:0;}	 

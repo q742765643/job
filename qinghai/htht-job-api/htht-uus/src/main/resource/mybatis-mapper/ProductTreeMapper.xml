@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htht.job.uus.dao.ProductTreeDao">
+
+	<resultMap id="ProductTreeMap" type="com.htht.job.uus.model.ProductTree">
+		<id property="id" column="id" />
+		<result property="parentId" column="parent_id" />
+		<result property="name" column="text" />
+		<result property="iconPath" column="icon_path" />
+		<result property="mapurl" column="map_url" />
+		<result property="sortno" column="sort_no" />
+	</resultMap>
+
+	<select id="selectCycleById" resultType="String">
+		SELECT cycle FROM htht_cluster_schedule_product WHERE id=#{id}
+	</select>
+
+	<select id="selectProductTreeByUserId" resultMap="ProductTreeMap">
+		SELECT DISTINCT p.id,p.name text,p.tree_id parent_id,p.map_url,p.sort_no,p.icon_path
+		FROM htht_uus_user_role ur, htht_uus_role r, htht_uus_role_category rc,htht_cluster_schedule_data_category c,htht_cluster_schedule_product p
+		WHERE 1=1
+			AND ur.role_id = r.id
+			AND r.id = rc.role_id
+			AND rc.category_id = c.id
+			AND p.tree_id = c.id
+			AND ur.user_id = #{userId}
+		ORDER BY p.sort_no ASC
+	</select>
+
+</mapper>

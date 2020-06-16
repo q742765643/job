@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htht.job.uus.dao.ProductFileInfoDao">
+
+    <resultMap id="ProductFileInfoMap" type="com.htht.job.uus.model.ProductFileInfo">
+        <id property="id" column="id"/>
+        <result property="createTime" column="create_Time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="version" column="version"/>
+        <result property="filePath" column="file_path"/>
+        <result property="fileType" column="file_type"/>
+        <result property="productId" column="product_id" />
+        <result property="productType" column="product_type" />
+        <result property="isDel" column="is_del" />
+        <result property="relativePath" column="relative_path" />
+        <result property="cycle" column="cycle" />
+        <result property="issue" column="issue" />
+        <result property="menuId" column="menu_id"/>
+        <result property="regionId" column="region" />
+        <result property="zt" column="zt" />
+        <result property="fileName" column="file_name" />
+        <result property="fileSize" column="file_size" />
+        <result property="productInfoId" column="product_info_id" />
+    </resultMap>
+    
+    <select id="selectProductFileInfoByIssueAndCycle" resultMap="ProductFileInfoMap">
+        SELECT * 
+        FROM htht_cluster_schedule_product_file_info
+       	WHERE 1=1 
+        <if test="cycle!=null and cycle!='' "> AND cycle =  #{cycle} </if>
+        <if test="productInfoId!=null and productInfoId!='' "> AND product_info_id =  #{productInfoId} </if>
+         <if test="issue!=null and issue!='' "> AND issue = #{issue}</if>
+        <if test="regionIds!=null and regionIds.length!='' "> AND region IN 
+        	<foreach collection="regionIds" index="index" item="regionId" open="(" separator="," close=")" >
+        		#{regionId}
+        	</foreach>
+        </if>
+        ORDER BY id ASC
+    </select>
+    
+</mapper>
