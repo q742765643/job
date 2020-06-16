@@ -1,0 +1,8 @@
+Info: 进入main函数 (main.cpp:1772, int __cdecl main(int,char *[]))
+Info: 参数paraList[0]=Z:\soa_data\PIEOrtho\pro\2017080715390983s0wr8ut7.PIEPrj (main.cpp:1779, int __cdecl main(int,char *[]))
+Info: 参数paraList[1]=Z:\soa_data\PIEOrtho\out\林业高分3\PIE4.0辐射定标_5\GF1_PMS2_E120.2_N30.2_20150211_L1A0000645339-PAN2.tif (main.cpp:1779, int __cdecl main(int,char *[]))
+Info: 参数paraList[2]=0 (main.cpp:1779, int __cdecl main(int,char *[]))
+Info: 参数paraList[3]=.img (main.cpp:1779, int __cdecl main(int,char *[]))
+Info: 参数paraList[4]= (main.cpp:1779, int __cdecl main(int,char *[]))
+Info: 判断算法类别 (main.cpp:1782, int __cdecl main(int,char *[]))
+Info: 开始执行正射校正算法 (main.cpp:1685, int __cdecl ExcuteOrthoAlgo(class QStringList &,class QString &))

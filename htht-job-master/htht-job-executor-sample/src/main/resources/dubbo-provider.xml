@@ -1,0 +1,25 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	    http://dubbo.apache.org/schema/dubbo
+	   http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="provider" owner="zzj"/>
+    <dubbo:registry cluster="failover" protocol="redis" address="${spring.redis.host}:${spring.redis.port}"
+                    check="false"/>
+    <dubbo:protocol name="dubbo" port="${cluster.dubbo.port}" serialization="kryo"/>
+    <dubbo:consumer check="false" timeout="500000"/>
+    <dubbo:service ref="dataCategoryService" retries="0"
+                   interface="com.htht.job.core.api.datacategory.DataCategoryService"/>
+    <dubbo:service ref="atomicAlgorithmService" retries="0"
+                   interface="com.htht.job.core.api.algorithm.AtomicAlgorithmService"/>
+    <dubbo:service ref="taskParametersService" retries="0"
+                   interface="com.htht.job.core.api.algorithm.TaskParametersService"/>
+    <dubbo:service ref="dubboService" retries="0" interface="com.htht.job.core.api.DubboService" timeout="3600000"/>
+    <dubbo:service ref="dubboShiroService" retries="0" interface="com.htht.job.core.api.DubboShiroService"/>
+    <dubbo:service ref="executorBiz" retries="0" interface="com.htht.job.core.biz.ExecutorBiz"/>
+
+
+</beans>

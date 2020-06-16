@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+/*弹框*/
+.add{width:700px;position:absolute;top:17%;left:25%;background:#fcfdfd;box-shadow:1px 5px 5px 1px #bfbfbf;border-radius:1px;z-index:999;}
+.addtop{height:36px; line-height:36px; background:#6fb3e0;}
+.addtop span{font-size:14px; font-weight:bold; color:#fff;float:left;text-indent:20px;}
+.addtop a{display:block; background:url(../images/close.png) no-repeat; width:22px; height:22px;float:right;margin-right:7px; margin-top:10px;}
+.addtop a:hover{background:url(../images/close1.png) no-repeat;}
+.addForm{margin-top:10px;}
+.addForm table{line-height:40px;border:1px solid #e4e4e4;border-bottom:none;margin:auto; }
+.addForm th,.addForm td{font-size:12px;color:#4d4d4d;border-bottom:1px solid #e4e4e4;border-right:1px solid #e4e4e4; font-size:14px;}
+.addForm th{background:#eff5f9;font-weight:normal;text-align:right;}
+.addForm td{padding-left:10px;}
+.addForm td:last-child{border-right:none;}
+.addForm select{width:155px;font-size:14px;color:#646464; border:1px #ccc solid;margin-right:10px;line-height:26px;height:26px;text-indent:5px;}
+.addForm input{color:#646464;font-size:14px; border:1px #ccc solid;text-align:left;line-height:26px;height:26px;text-indent:5px;}
+.btnbox{width:100%;text-align:center;padding:15px 0;}
+.sure{display:inline-block;width:36px;padding:5px 10px;color:#fff;font-size:12px;text-align:center;background:#87c06f;}
+.cancel{display:inline-block;width:36px;padding:5px 10px;color:#fff;font-size:12px;text-align:center;background:#dc6566;margin-left:20px}

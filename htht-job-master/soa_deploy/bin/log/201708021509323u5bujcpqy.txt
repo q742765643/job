@@ -1,0 +1,7 @@
+Info: 进入main函数 (main.cpp:1740, int __cdecl main(int,char *[]))
+Info: 参数paraList[0]=100 (main.cpp:1747, int __cdecl main(int,char *[]))
+Info: 参数paraList[1]=Z:\测试数据\01－GF1\gf1-pms-高分林业\20\GF1_PMS1_E120.1_N30.0_20150729_L1A0000948483-MSS1.tiff (main.cpp:1747, int __cdecl main(int,char *[]))
+Info: 参数paraList[2]=Z:\soa_data\PIEOrtho\out\创建工程unicode\辐射定标_2\GF1_PMS1_E120.1_N30.0_20150729_L1A0000948483-MSS1.tif (main.cpp:1747, int __cdecl main(int,char *[]))
+Info: 判断算法类别 (main.cpp:1750, int __cdecl main(int,char *[]))
+Info: 开始执行辐射定标算法 (main.cpp:491, int __cdecl ExcutePIECalibration(class QStringList &,class QString))
+Info: errorInfo =  (main.cpp:1781, int __cdecl main(int,char *[]))

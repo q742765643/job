@@ -1,0 +1,7 @@
+Info: 进入main函数 (main.cpp:1772, int __cdecl main(int,char *[]))
+Info: 参数paraList[0]=100 (main.cpp:1779, int __cdecl main(int,char *[]))
+Info: 参数paraList[1]=Y:\GF4\!GF4_PMI_E116.8_N39.6_20160516_L1A0000113258\GF4-IRS\GF4_IRS_E116.8_N39.6_20160516_L1A0000113258.tiff (main.cpp:1779, int __cdecl main(int,char *[]))
+Info: 参数paraList[2]=Y:\out\999\辐射定标_2\GF4_IRS_E116.8_N39.6_20160516_L1A0000113258.tif (main.cpp:1779, int __cdecl main(int,char *[]))
+Info: 判断算法类别 (main.cpp:1782, int __cdecl main(int,char *[]))
+Info: 开始执行辐射定标算法 (main.cpp:491, int __cdecl ExcutePIECalibration(class QStringList &,class QString))
+Info: errorInfo =  (main.cpp:1815, int __cdecl main(int,char *[]))

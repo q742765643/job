@@ -1,0 +1,4 @@
+Info: 进入main函数 (main.cpp:1772, int __cdecl main(int,char *[]))
+Info: 输入参数数目错误 (main.cpp:1483, bool __cdecl GetAlgoPara(int,char *[],class QString &,class QStringList &))
+Info: 进入main函数 (main.cpp:1772, int __cdecl main(int,char *[]))
+Info: 输入参数数目错误 (main.cpp:1483, bool __cdecl GetAlgoPara(int,char *[],class QString &,class QStringList &))
