@@ -29,7 +29,7 @@
 		<mysql-connector-java.version>5.1.29</mysql-connector-java.version>
 		<mybatis-spring.version>1.2.2</mybatis-spring.version>
 		<mybatis.version>3.2.8</mybatis.version>
-		<jackson.version>2.5.4</jackson.version>
+		<jackson.version>2.11.1</jackson.version>
 	</properties>
 
 	<dependencies>
