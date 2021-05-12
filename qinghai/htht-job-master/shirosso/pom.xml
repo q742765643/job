@@ -10,7 +10,7 @@
     <properties>
         <spring.version>4.3.10.RELEASE</spring.version>
         <commons-lang.version>2.6</commons-lang.version>
-        <spring-security.version>4.1.3.RELEASE</spring-security.version>
+        <spring-security.version>5.2.10.RELEASE</spring-security.version>
         <ehcache.version>2.10.0</ehcache.version>
         <freemarker.version>2.3.28</freemarker.version>
 
