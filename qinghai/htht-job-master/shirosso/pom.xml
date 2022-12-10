@@ -8,7 +8,7 @@
     <artifactId>shiro-sso</artifactId>
     <version>V0.7</version>
     <properties>
-        <spring.version>4.3.10.RELEASE</spring.version>
+        <spring.version>6.0.0</spring.version>
         <commons-lang.version>2.6</commons-lang.version>
         <spring-security.version>4.1.3.RELEASE</spring-security.version>
         <ehcache.version>2.10.0</ehcache.version>
